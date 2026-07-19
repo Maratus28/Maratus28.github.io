@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mar'Atus Sholikah — Portofolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0a0e16;
+    --panel:#12161f;
+    --panel-2:#171c27;
+    --gold:#c6a15b;
+    --gold-dim:#8a7648;
+    --paper:#e9e6dd;
+    --muted:#9aa0ac;
+    --rule:#262c38;
+    --font-display:'Cormorant Garamond', serif;
+    --font-body:'Source Sans 3', sans-serif;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:var(--font-body);
+    line-height:1.7;
+    font-size:16px;
+  }
+
+  a{color:var(--gold); text-decoration:none;}
+  .wrap{max-width:880px; margin:0 auto; padding:0 32px;}
+
+  nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(10,14,22,0.92);
+    border-bottom:1px solid var(--rule);
+  }
+  nav .wrap{
+    display:flex; justify-content:space-between; align-items:center;
+    height:68px;
+  }
+  .nav-brand{
+    font-family:var(--font-display);
+    font-size:20px;
+    letter-spacing:2px;
+    color:var(--paper);
+  }
+  .nav-links{display:flex; gap:30px; list-style:none;}
+  .nav-links a{
+    font-size:12px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:var(--muted);
+    transition:color .25s;
+  }
+  .nav-links a:hover{color:var(--gold);}
+
+  header.hero{
+    padding:96px 0 80px;
+    border-bottom:1px solid var(--rule);
+    text-align:center;
+  }
+  .seal{
+    width:76px; height:76px;
+    border:1px solid var(--gold);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    margin:0 auto 28px;
+    font-family:var(--font-display);
+    font-size:26px;
+    color:var(--gold);
+    letter-spacing:1px;
+    position:relative;
+  }
+  .seal::before{
+    content:'';
+    position:absolute;
+    width:88px; height:88px;
+    border:1px solid var(--rule);
+    border-radius:50%;
+  }
+  h1{
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:clamp(38px, 6vw, 58px);
+    color:var(--paper);
+    letter-spacing:0.5px;
+    margin-bottom:10px;
+  }
+  .rule-thin{
+    width:60px; height:1px;
+    background:var(--gold);
+    margin:22px auto;
+  }
+  .role{
+    font-size:15px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:36px;
+  }
+  .hero-cta{display:flex; gap:16px; justify-content:center; flex-wrap:wrap;}
+  .btn{
+    font-size:12px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    padding:14px 28px;
+    border:1px solid var(--gold);
+    color:var(--gold);
+    transition:all .25s;
+    display:inline-block;
+  }
+  .btn.filled{background:var(--gold); color:var(--ink);}
+  .btn:hover{background:var(--gold); color:var(--ink);}
+
+  .section{padding:76px 0; border-bottom:1px solid var(--rule);}
+  .sec-head{
+    display:flex; align-items:center; gap:18px;
+    margin-bottom:40px;
+  }
+  .sec-head .num{
+    font-family:var(--font-display);
+    font-size:15px;
+    color:var(--gold-dim);
+  }
+  .sec-head .line{flex:1; height:1px; background:var(--rule);}
+  .sec-title{
+    font-family:var(--font-display);
+    font-size:30px;
+    font-weight:600;
+    color:var(--paper);
+    letter-spacing:0.5px;
+    white-space:nowrap;
+  }
+
+  .about-text{max-width:660px; color:var(--muted); font-size:16px;}
+  .about-text strong{color:var(--paper); font-weight:600;}
+
+  .skill-cols{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+    gap:40px;
+  }
+  .skill-col h3{
+    font-family:var(--font-display);
+    font-size:18px;
+    color:var(--gold);
+    font-weight:600;
+    margin-bottom:14px;
+    padding-bottom:8px;
+    border-bottom:1px solid var(--rule);
+  }
+  .skill-col ul{list-style:none; font-size:14.5px; color:var(--muted);}
+  .skill-col li{padding:6px 0; border-bottom:1px dotted var(--rule);}
+  .skill-col li:last-child{border-bottom:none;}
+
+  .exp-item{margin-bottom:30px;}
+  .exp-item:last-child{margin-bottom:0;}
+  .exp-top{
+    display:flex; justify-content:space-between; align-items:baseline;
+    flex-wrap:wrap; gap:6px; margin-bottom:4px;
+  }
+  .exp-org{font-family:var(--font-display); font-size:20px; font-weight:600; color:var(--paper);}
+  .exp-date{font-size:12px; letter-spacing:1px; text-transform:uppercase; color:var(--gold-dim);}
+  .exp-role{font-size:13.5px; letter-spacing:0.5px; color:var(--gold); text-transform:uppercase; margin-bottom:12px;}
+  .exp-item ul{list-style:none; color:var(--muted); font-size:15px;}
+  .exp-item li{padding:4px 0 4px 18px; position:relative;}
+  .exp-item li::before{content:'—'; position:absolute; left:0; color:var(--gold-dim);}
+
+  .project{
+    border:1px solid var(--rule);
+    background:var(--panel);
+    padding:40px;
+  }
+  .project-eyebrow{
+    font-size:12px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:16px;
+  }
+  .project h3{
+    font-family:var(--font-display);
+    font-size:24px;
+    font-weight:600;
+    color:var(--paper);
+    line-height:1.4;
+    margin-bottom:16px;
+  }
+  .project p{color:var(--muted); font-size:15px; margin-bottom:24px; max-width:680px;}
+  .stack{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:28px;}
+  .stack span{
+    font-size:11.5px;
+    letter-spacing:0.5px;
+    color:var(--paper);
+    border:1px solid var(--rule);
+    padding:5px 12px;
+  }
+  .result-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(150px,1fr));
+    gap:1px;
+    background:var(--rule);
+    border-top:1px solid var(--rule);
+    border-bottom:1px solid var(--rule);
+  }
+  .result-item{
+    background:var(--panel);
+    padding:20px;
+    text-align:center;
+  }
+  .result-item .figure{
+    font-family:var(--font-display);
+    font-size:28px;
+    color:var(--gold);
+    font-weight:600;
+  }
+  .result-item .caption{
+    font-size:11px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-top:6px;
+  }
+  .note{font-size:12px; color:var(--muted); margin-top:14px; font-style:italic;}
+
+  .edu-row{
+    display:flex; justify-content:space-between; align-items:baseline;
+    padding:20px 0;
+    border-bottom:1px dotted var(--rule);
+    flex-wrap:wrap; gap:8px;
+  }
+  .edu-row:last-child{border-bottom:none;}
+  .edu-role{font-family:var(--font-display); font-size:19px; color:var(--paper); font-weight:600;}
+  .edu-org{color:var(--muted); font-size:14px;}
+  .edu-date{
+    font-size:12px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:var(--gold-dim);
+  }
+
+  .contact-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(200px,1fr));
+    gap:1px;
+    background:var(--rule);
+    border:1px solid var(--rule);
+  }
+  .contact-card{
+    background:var(--panel);
+    padding:24px;
+  }
+  .contact-card .label{
+    font-size:11px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:var(--gold-dim);
+    margin-bottom:8px;
+  }
+  .contact-card .value{color:var(--paper); font-size:15px; word-break:break-word;}
+
+  footer{
+    text-align:center;
+    padding:36px 0;
+    font-size:12px;
+    letter-spacing:1px;
+    color:var(--muted);
+  }
+
+  ::selection{background:var(--gold); color:var(--ink);}
+
+  @media (max-width:600px){
+    .sec-title{font-size:24px;}
+    .project{padding:26px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    * { scroll-behavior:auto !important; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="nav-brand">MS</div>
+    <ul class="nav-links">
+      <li><a href="#about">Profil</a></li>
+      <li><a href="#skills">Keahlian</a></li>
+      <li><a href="#experience">Pengalaman</a></li>
+      <li><a href="#project">Proyek</a></li>
+      <li><a href="#education">Pendidikan</a></li>
+      <li><a href="#contact">Kontak</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="seal">MS</div>
+    <h1>Mar'Atus Sholikah</h1>
+    <div class="rule-thin"></div>
+    <p class="role">Fresh Graduate Teknik Informatika · Web Development & IoT</p>
+    <div class="hero-cta">
+      <a href="#project" class="btn filled">Lihat Proyek</a>
+      <a href="#contact" class="btn">Hubungi Saya</a>
+    </div>
+  </div>
+</header>
+
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">01</span><div class="line"></div><span class="sec-title">Profil</span></div>
+    <p class="about-text">
+      Fresh Graduate <strong>Teknik Informatika</strong> dengan ketertarikan pada pengembangan perangkat lunak,
+      website, dan Internet of Things (IoT). Memiliki pengalaman sebagai <strong>SEO Writer</strong> dan
+      <strong>Content Writer</strong> yang mengasah kemampuan komunikasi, riset, serta penyusunan konten yang
+      efektif. Menguasai dasar pengembangan website dan memiliki pengalaman mengerjakan proyek IoT yang
+      mengintegrasikan mikrokontroler, sensor, kamera, dan protokol komunikasi. Memiliki kemampuan analitis,
+      cepat beradaptasi dengan teknologi baru, teliti, serta mampu bekerja di bawah tekanan dan memenuhi target
+      penyelesaian pekerjaan. Siap berkontribusi dan terus berkembang di lingkungan kerja yang dinamis.
+    </p>
+  </div>
+</section>
+
+<section class="section" id="skills">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">02</span><div class="line"></div><span class="sec-title">Keahlian</span></div>
+    <div class="skill-cols">
+      <div class="skill-col">
+        <h3>Pengembangan Web</h3>
+        <ul>
+          <li>HTML, CSS, JavaScript</li>
+          <li>Python</li>
+          <li>C++</li>
+        </ul>
+      </div>
+      <div class="skill-col">
+        <h3>Internet of Things</h3>
+        <ul>
+          <li>Internet of Things (IoT)</li>
+          <li>Integrasi mikrokontroler & sensor</li>
+          <li>Protokol komunikasi (MQTT/CoAP)</li>
+        </ul>
+      </div>
+      <div class="skill-col">
+        <h3>Riset & Konten</h3>
+        <ul>
+          <li>SEO Writing</li>
+          <li>Content Writing</li>
+          <li>Riset & dokumentasi teknis</li>
+        </ul>
+      </div>
+      <div class="skill-col">
+        <h3>Perangkat Kerja</h3>
+        <ul>
+          <li>Microsoft Office</li>
+          <li>Canva</li>
+          <li>Adobe Photoshop</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="experience">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">03</span><div class="line"></div><span class="sec-title">Pengalaman Kerja</span></div>
+    <div class="exp-item">
+      <div class="exp-top">
+        <span class="exp-org">PT Global Internet Solusindo</span>
+        <span class="exp-date">Januari 2025 — Juni 2025</span>
+      </div>
+      <div class="exp-role">Magang</div>
+      <ul>
+        <li>Mengembangkan website menggunakan HTML, CSS, JavaScript, dan PHP.</li>
+        <li>Melakukan deployment dan pengujian website sebelum digunakan.</li>
+        <li>Membuat dokumentasi teknis serta laporan hasil pengembangan.</li>
+        <li>Membantu perbaikan bug dan pemeliharaan website.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="project">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">04</span><div class="line"></div><span class="sec-title">Proyek Unggulan</span></div>
+    <div class="project">
+      <div class="project-eyebrow">Tugas Akhir / Skripsi</div>
+      <h3>Implementasi dan Analisis Kinerja Jaringan IoT Menggunakan Protokol MQTT dan CoAP pada Sistem Pengusiran Hama Burung</h3>
+      <p>
+        Merancang sistem IoT berbasis ESP32 yang mendeteksi kehadiran burung menggunakan sensor PIR dan kamera,
+        kemudian menggerakkan servo serta memutar suara pengusir melalui DFPlayer Mini. Sistem diuji
+        menggunakan dua protokol komunikasi secara bersamaan untuk membandingkan delay, throughput, dan packet
+        loss pada kondisi jaringan stabil maupun tidak stabil.
+      </p>
+      <div class="stack">
+        <span>ESP32</span><span>MQTT</span><span>CoAP</span><span>Blynk</span>
+        <span>Python</span><span>Wireshark</span><span>YOLO</span>
+      </div>
+      <div class="result-grid">
+        <div class="result-item">
+          <div class="figure">[X] ms</div>
+          <div class="caption">Delay rata-rata MQTT</div>
+        </div>
+        <div class="result-item">
+          <div class="figure">[X] ms</div>
+          <div class="caption">Delay rata-rata CoAP</div>
+        </div>
+        <div class="result-item">
+          <div class="figure">[X]%</div>
+          <div class="caption">Packet loss terendah</div>
+        </div>
+      </div>
+      <p class="note">Ganti angka di atas dengan hasil pengujian asli dari BAB IV skripsi kamu.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="education">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">05</span><div class="line"></div><span class="sec-title">Pendidikan</span></div>
+    <div class="edu-row">
+      <div>
+        <div class="edu-role">Teknik Informatika</div>
+        <div class="edu-org">Universitas Qomaruddin Gresik · IPK 3.7 / 4.0</div>
+      </div>
+      <div class="edu-date">2022 — 2026</div>
+    </div>
+    <div class="edu-row">
+      <div>
+        <div class="edu-role">Teknik Multimedia</div>
+        <div class="edu-org">SMK Ponpes Ahu Dzarrin</div>
+      </div>
+      <div class="edu-date">2018 — 2021</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact" style="border-bottom:none;">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">06</span><div class="line"></div><span class="sec-title">Kontak</span></div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="label">Telepon</div>
+        <div class="value">+62 881-0278-09162</div>
+      </div>
+      <div class="contact-card">
+        <div class="label">Email</div>
+        <div class="value">babysnow.ra@gmail.com</div>
+      </div>
+      <div class="contact-card">
+        <div class="label">Lokasi</div>
+        <div class="value">Mriyunan, Sidayu-Gresik</div>
+      </div>
+      <div class="contact-card">
+        <div class="label">GitHub</div>
+        <div class="value">github.com/username</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Mar'Atus Sholikah · Portofolio Profesional
+</footer>
+
+</body>
+</html>
